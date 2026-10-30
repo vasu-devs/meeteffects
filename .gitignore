@@ -1,0 +1,18 @@
+# Generated test output, recordings and local delivery receipts
+artifacts/
+__pycache__/
+*.pyc
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+
+# Local credentials and editor/agent state
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.aws/
+.codex/
+.agents/

@@ -1,0 +1,24 @@
+{
+  "name": "meeteffects",
+  "version": "0.4.3",
+  "private": true,
+  "description": "Local camera effects for Google Meet",
+  "scripts": {
+    "start": "python3 scripts/serve.py",
+    "test": "node --test --test-concurrency=1 tests/*.test.cjs",
+    "test:browser": "node tests/browser.cjs",
+    "test:meet-page": "node tests/browser.cjs --meet-page",
+    "package": "python3 scripts/package.py"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vasu-devs/meeteffects.git"
+  },
+  "homepage": "https://github.com/vasu-devs/meeteffects#readme",
+  "bugs": {
+    "url": "https://github.com/vasu-devs/meeteffects/issues"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "MeetEffects \u2014 camera mischief",
+  "version": "0.4.3",
+  "description": "Dust exits, cinema moments and custom memes in your outgoing Google Meet camera. Runs locally.",
+  "minimum_chrome_version": "111",
+  "action": {
+    "default_title": "MeetEffects \u2014 effects studio",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://meet.google.com/*"
+      ],
+      "js": [
+        "engine.js",
+        "background.js",
+        "segment-client.js",
+        "meme-assets.js",
+        "meme-renderer.js",
+        "meme-audio.js",
+        "snap.js",
+        "bridge.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://meet.google.com/*"
+      ],
+      "js": [
+        "segment-host.js"
+      ],
+      "run_at": "document_start",
+      "world": "ISOLATED"
+    },
+    {
+      "matches": [
+        "https://meet.google.com/*"
+      ],
+      "js": [
+        "meme-assets.js",
+        "panel.js"
+      ],
+      "run_at": "document_idle",
+      "world": "ISOLATED"
+    }
+  ],
+  "background": {
+    "service_worker": "segment-worker.js"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  }
+}

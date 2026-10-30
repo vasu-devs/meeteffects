@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MeetEffects · effects studio</title><link rel="stylesheet" href="studio.css"></head>
+<body>
+<header class="masthead"><a href="studio.html" class="brand">MeetEffects<span class="brand-mark" aria-hidden="true">✳</span></a><span class="muted">Camera mischief, made local.</span></header>
+<main>
+  <div class="intro"><h1>Make an exit.</h1><p>Or make it everyone’s problem.<br>Your camera. A perfectly timed bit.</p></div>
+  <div class="workspace">
+    <section class="monitor" aria-label="Camera monitor">
+      <div class="monitor-heading"><span id="source-label">Demo scene</span><span id="effect-label">No effect</span></div>
+      <div class="screen"><canvas id="output" width="960" height="540" aria-label="Processed camera preview"></canvas><span class="demo-tag" id="demo-tag">Illustrated demo · not your camera</span></div>
+      <div class="transport"><button id="camera" class="primary">Use camera + snaps</button><button id="demo" hidden>Back to demo</button><span id="privacy">Camera is off. Try an effect.</span></div>
+      <p id="notice" class="notice" role="status">Try the demo, or use your camera and snap to disappear.</p>
+      <details class="install"><summary>Use this in a real Google Meet</summary><ol>
+        <li>Open <strong>chrome://extensions</strong> (or <strong>brave://extensions</strong>) and enable Developer mode.</li>
+        <li>Choose <strong>Load unpacked</strong> and select <strong>MeetEffects</strong> in Downloads.</li>
+        <li>Reload Google Meet, turn on your camera, and open the <strong>MeetEffects</strong> pill.</li>
+        <li>Disable Meet backgrounds. Try a meme in a test call and check it from a second device.</li>
+      </ol><p>This studio is a local preview. Installing the extension connects the effects to Meet. Your Meet self-view may mirror text; the outgoing image is unmirrored.</p></details>
+    </section>
+    <aside class="controls" aria-label="Effects deck">
+      <div class="deck-heading"><h2>The effects deck</h2><span>Pick your moment.</span></div>
+      <button class="effect dust" data-effect="dust"><span><strong>Turn to dust</strong><small>Keep moving. Snap out. Snap back.</small></span><kbd>1</kbd></button>
+      <section class="snap-controls" aria-label="Disappearance setup">
+        <div class="room-upload"><button id="room-now" class="primary" disabled>Take room photo</button><button id="room-capture" disabled>5-second timer</button><p id="room-state" role="status">Start your camera. Take a photo of the empty room now, or use the timer to step away. That photo fills the space behind you.</p><img id="room-preview" alt="Saved empty-room photo" hidden><details><summary>Or use a photo</summary><label for="room-image">Before image · empty room</label><input id="room-image" type="file" accept="image/png,image/jpeg,image/webp"></details></div>
+        <p id="dust-state" role="status">Demo dust is ready.</p>
+        <label class="snap"><input type="checkbox" id="snap"> Snap to disappear</label>
+        <div class="mic-level"><label for="mic-level">Microphone</label><meter id="mic-level" min="0" max="1" value="0">0</meter></div>
+        <p id="snap-state">Starts automatically when you use your camera.</p>
+        <p class="small">Your photo fills the space behind you; the rest of the camera stays live. Snaps use sound; claps and taps can trigger it too.</p>
+      </section>
+      <button class="effect" data-effect="cinema"><span><strong>Absolute cinema</strong><small>Letterbox. Monochrome. Masterpiece.</small></span><kbd>2</kbd></button>
+      <button class="effect" data-effect="tired"><span><strong>I’m tired, boss</strong><small>For the meeting after the meeting.</small></span><kbd>3</kbd></button>
+      <button class="effect" data-effect="brb"><span><strong>Mentally out of office</strong><small>Physically still on the call.</small></span><kbd>4</kbd></button>
+      <div class="sound-controls"><label><input id="sounds" type="checkbox"> Meme sounds</label><p id="sound-state" role="status">Off. Enable to hear clips in this preview.</p></div>
+      <button class="reset" data-effect="none">Back to reality <kbd>0</kbd></button>
+      <div class="upload"><label for="meme">Bring your own meme</label><input id="meme" type="file" accept="image/png,image/jpeg,image/webp,image/gif"><p>PNG, JPG, WebP or GIF · up to 5 MB</p></div>
+      <p class="keyboard">Studio keys: <kbd>0</kbd>–<kbd>4</kbd>. In Meet: <kbd>Alt</kbd> + <kbd>Shift</kbd> + number.</p>
+    </aside>
+  </div>
+  <footer><span>All effects run on this device.</span><span>Live effects / v0.4.3</span></footer>
+</main>
+<script src="engine.js"></script><script src="background.js"></script><script src="segment-client.js"></script>
+<script src="vendor/vision-bundle.js"></script><script src="vendor/vision_wasm_internal.js"></script>
+<script src="segment-inference.js"></script><script src="segment-host.js"></script>
+<script src="meme-assets.js"></script><script src="meme-renderer.js"></script><script src="meme-audio.js"></script>
+<script src="snap.js"></script><script src="studio.js"></script>
+</body></html>
